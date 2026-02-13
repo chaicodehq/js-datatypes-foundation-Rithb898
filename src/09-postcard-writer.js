@@ -52,7 +52,12 @@
  *   countVowels("Namaste")     // => 3
  */
 export function writePostcard(sender, receiver, message) {
-  if (typeof sender !== 'string' || typeof receiver !== 'string' || typeof message !== 'string') return "";
+  if (
+    typeof sender !== "string" ||
+    typeof receiver !== "string" ||
+    typeof message !== "string"
+  )
+    return "";
   const s = sender.trim();
   const r = receiver.trim();
   const m = message.trim();
@@ -61,24 +66,25 @@ export function writePostcard(sender, receiver, message) {
 }
 
 export function isValidPincode(code) {
-  if (typeof code !== 'string') return false;
-  if (code.length !== 6 || code.startsWith('0')) return false;
+  if (typeof code !== "string") return false;
+  if (code.length !== 6 || code.startsWith("0")) return false;
   return /^\d+$/.test(code);
 }
 
 export function formatPostcardField(label, value, width) {
-  if (typeof label !== 'string' || typeof value !== 'string') return "";
-  const w = typeof width === 'number' ? width : 12;
+  if (typeof label !== "string" || typeof value !== "string") return "";
+  const w = typeof width === "number" ? width : 12;
   return label.padEnd(w) + ": " + value;
 }
 
 export function isFromState(address, stateCode) {
-  if (typeof address !== 'string' || typeof stateCode !== 'string') return false;
+  if (typeof address !== "string" || typeof stateCode !== "string")
+    return false;
   return address.endsWith(stateCode);
 }
 
 export function countVowels(message) {
-  if (typeof message !== 'string') return 0;
+  if (typeof message !== "string") return 0;
   const matches = message.match(/[aeiouAEIOU]/g);
   return matches ? matches.length : 0;
 }

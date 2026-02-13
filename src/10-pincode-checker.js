@@ -64,7 +64,7 @@ export function getDataType(value) {
 }
 
 export function isValidParcelWeight(weight) {
-  return typeof weight === 'number' && Number.isFinite(weight) && weight > 0;
+  return typeof weight === "number" && Number.isFinite(weight) && weight > 0;
 }
 
 export function isWholeNumber(value) {

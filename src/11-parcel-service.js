@@ -61,7 +61,7 @@ export function parcelToJSON(parcel) {
 }
 
 export function jsonToParcel(jsonString) {
-  if (typeof jsonString !== 'string') return null;
+  if (typeof jsonString !== "string") return null;
   try {
     return JSON.parse(jsonString);
   } catch {
@@ -78,6 +78,6 @@ export function convertToNumber(value) {
 }
 
 export function stringToChars(str) {
-  if (typeof str !== 'string') return [];
+  if (typeof str !== "string") return [];
   return Array.from(str);
 }

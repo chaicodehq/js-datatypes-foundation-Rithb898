@@ -46,8 +46,19 @@
  *   updatePrices({meetha:30, saada:20}, 10)              // => {meetha:40, saada:30}
  */
 export function createPaanOrder(basePaan, customizations) {
-  if (!(typeof basePaan === "object" && basePaan !== null && !Array.isArray(basePaan))) return {};
-  if (typeof customizations === "object" && customizations !== null && !Array.isArray(customizations)) {
+  if (
+    !(
+      typeof basePaan === "object" &&
+      basePaan !== null &&
+      !Array.isArray(basePaan)
+    )
+  )
+    return {};
+  if (
+    typeof customizations === "object" &&
+    customizations !== null &&
+    !Array.isArray(customizations)
+  ) {
     return Object.assign({}, basePaan, customizations);
   } else {
     return Object.assign({}, basePaan);
@@ -55,18 +66,36 @@ export function createPaanOrder(basePaan, customizations) {
 }
 
 export function freezeMenu(menu) {
-  if (!(typeof menu === "object" && menu !== null && !Array.isArray(menu))) return {};
+  if (!(typeof menu === "object" && menu !== null && !Array.isArray(menu)))
+    return {};
   return Object.freeze(menu);
 }
 
 export function updatePrices(menu, increase) {
-  if (!(typeof menu === "object" && menu !== null && !Array.isArray(menu)) || typeof increase !== 'number') return {};
-  const entries = Object.entries(menu).map(([key, value]) => [key, value + increase]);
+  if (
+    !(typeof menu === "object" && menu !== null && !Array.isArray(menu)) ||
+    typeof increase !== "number"
+  )
+    return {};
+  const entries = Object.entries(menu).map(([key, value]) => [
+    key,
+    value + increase,
+  ]);
   return Object.fromEntries(entries);
 }
 
 export function mergeDailySpecials(regularMenu, specialsMenu) {
-  const reg = (typeof regularMenu === "object" && regularMenu !== null && !Array.isArray(regularMenu)) ? regularMenu : {};
-  const spec = (typeof specialsMenu === "object" && specialsMenu !== null && !Array.isArray(specialsMenu)) ? specialsMenu : {};
-  return {...reg, ...spec};
+  const reg =
+    typeof regularMenu === "object" &&
+    regularMenu !== null &&
+    !Array.isArray(regularMenu)
+      ? regularMenu
+      : {};
+  const spec =
+    typeof specialsMenu === "object" &&
+    specialsMenu !== null &&
+    !Array.isArray(specialsMenu)
+      ? specialsMenu
+      : {};
+  return { ...reg, ...spec };
 }
